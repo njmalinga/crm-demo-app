@@ -1,5 +1,22 @@
-{{!-- The following component displays Ember's default welcome message. --}}
-{{welcome-page}}
-{{!-- Feel free to remove this! --}}
-
-{{outlet}}
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="#">Excel@Uni CRM</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#nav_excel" aria-controls="nav_excel" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="nav_excel">
+    <ul class="navbar-nav mr-auto">
+      {{#link-to "index" class="nav-item"}}
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      {{/link-to}}
+      {{#link-to "people" class="nav-item"}}
+        <a class="nav-link" href="#">People</a>
+      {{/link-to}}
+      {{#link-to "branches" class="nav-item"}}
+        <a class="nav-link" href="#">Branches</a>
+      {{/link-to}}
+    </ul>
+  </div>
+</nav>
+<div class="container-fluid content">
+  {{outlet}}
+</div>
