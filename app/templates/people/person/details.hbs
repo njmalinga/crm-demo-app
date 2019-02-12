@@ -1,1 +1,19 @@
-{{outlet}}
+<div class="card w-75">
+  <img class="text-center
+    card-img-top"
+    src={{if profile_image profile_image "https://excelatuni.com/wp-content/uploads/2018/11/small-logo.png"}}
+    alt="Profile Image">
+  <div class="card-body">
+    <p class="card-text">
+      <b>First Name:</b> {{model.firstname}}<br />
+      <b>Last Name:</b> {{model.lastname}}<br />
+      <b>Email Address:</b> {{model.email}}<br />
+      <b>Contact Number:</b> {{model.contact_number}}<br />
+      <b>Alternative Contact Number:</b> {{model.alternative_contact_number}}<br />
+      <b>Address:</b> {{model.address}}<br />
+      <b>Preferred Method of Contact:</b> {{model.preferred_method_of_contact}}<br />
+      <b>Joining Date:</b> {{moment-format model.joining_date "DD-MM-YYYY"}}<br />
+      <b>Branch:</b> {{model.branch.name}}<br />
+    </p>
+  </div>
+</div>

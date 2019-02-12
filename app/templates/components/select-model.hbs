@@ -1,6 +1,6 @@
 {{#if prompt}}
   <option value="">{{prompt}}</option>
 {{/if}}
-{{#each options as |option|}}
-  <option value={{option.id}} selected={{eq option.id selected.id}}>{{get option displayColumn}}</option>
+{{#each options as |model|}}
+  <option value={{model.id}} selected={{eq model.id selected.id}}>{{get model displayColumn}}</option>
 {{/each}}

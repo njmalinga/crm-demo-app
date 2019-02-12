@@ -4,8 +4,8 @@ import RSVP from 'rsvp';
 export default Route.extend({
   model(params) {
     return RSVP.hash({
-      person: this.store.findRecord('person', params.person_id),
       branches: this.store.findAll('branch'),
+      person: this.store.findRecord('person', params.person_id, {include: 'branch'}),
     });
   },
   setupController(controller, model) {
