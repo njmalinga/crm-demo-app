@@ -1,1 +1,28 @@
-{{outlet}}
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">#</th>
+      <th scope="col">First Name</th>
+      <th scope="col">Last Name</th>
+      <th scope="col">Contact Number</th>
+      <th scope="col">Joining Date</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |person|}}
+      <tr>
+        <td>{{person.id}}</td>
+        <td>{{person.firstname}}</td>
+        <td>{{person.lastname}}</td>
+        <td>{{person.contact_number}}</td>
+        <td>{{person.joining_date}}</td>
+        <td>
+          {{#link-to "people.person.details" person.id}} Details |{{/link-to}}
+          {{#link-to "people.person.edit" person.id}} Edit {{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{#link-to "people.new" class="btn btn-primary"}} New {{/link-to}}

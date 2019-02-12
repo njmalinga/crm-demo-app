@@ -1,0 +1,6 @@
+{
+  "name": "excel-crm",
+  "dependencies": {
+    "pickadate": "^3.5.6"
+  }
+}

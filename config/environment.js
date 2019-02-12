@@ -23,7 +23,33 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['ember-simple-auth-token'] = {
+    serverTokenEndpoint: ENV.APP.API_HOST+'/api/users/login',
+    identificationField: 'email',
+    passwordField: 'password',
+    tokenPropertyName: 'id',
+    authorizationPrefix: ' ',
+    authorizationHeaderName: 'Authorization',
+    headers: {},
+  };
+
+  ENV['ember-simple-auth'] = {
+    authorizer: 'authorizer:token',
+    refreshAccessTokens: true,
+    timeFactor: 1000,
+    refreshLeeway: 300, // Refresh the token 5 minutes (300s) before it expires.
+    store: 'ember-simple-auth-session-store:local-storage',
+    crossOriginWhitelist: ['*'],
+    authenticationRoute: 'login',
+    routeAfterAuthentication: 'index',
+    routeIfAlreadyAuthenticated: 'index',
+    tokenEndpoint: 'auth/login'
+
+  };
+
   if (environment === 'development') {
+    ENV.APP.API_HOST = 'http://localhost:3000';
+    ENV.APP.API_NAMESPACE = 'api';
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
     // ENV.APP.LOG_TRANSITIONS = true;
