@@ -16,8 +16,8 @@ Router.map(function() {
   });
   this.route('branches', function() {
     this.route('new');
-    this.route('branch', {path: '/:branch_id'}, function() {
-      this.route('edit');
+    this.route('branch', function() {
+      this.route('edit', {path: ':branch_id/edit'});
     });
   });
 });

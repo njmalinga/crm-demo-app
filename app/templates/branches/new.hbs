@@ -1,1 +1,46 @@
-{{outlet}}
+<div class="card">
+  <div class="card-body">
+    <form {{action "save" model on="submit"}}>
+      <div class="form-group">
+        <label for="name">Name</label>
+        {{input type="text"
+          value=model.name
+          class="form-control"
+          id="name"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="code">Code</label>
+        {{input type="text"
+          value=model.code
+          class="form-control"
+          id="code"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="city">City</label>
+        {{input type="text"
+          value=model.city
+          class="form-control"
+          id="city"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="province">Province</label>
+        {{input type="text"
+          value=model.province
+          class="form-control"
+          id="province"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Save</button>
+        {{#link-to "branches" class="btn btn-default"}} Cancel {{/link-to}}
+      </div>
+    </form>
+  </div>
+</div>

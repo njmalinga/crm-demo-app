@@ -1,1 +1,25 @@
-{{outlet}}
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col">Name</th>
+      <th scope="col">Code</th>
+      <th scope="col">City</th>
+      <th scope="col">Province</th>
+      <th scope="col"></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#each model as |branch|}}
+      <tr>
+        <td>{{branch.name}}</td>
+        <td>{{branch.code}}</td>
+        <td>{{branch.city}}</td>
+        <td>{{branch.province}}</td>
+        <td>
+          {{#link-to "branches.branch.edit" branch.id}} Edit {{/link-to}}
+        </td>
+      </tr>
+    {{/each}}
+  </tbody>
+</table>
+{{#link-to "branches.new" class="btn btn-primary"}} New {{/link-to}}
