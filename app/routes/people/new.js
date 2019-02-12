@@ -16,5 +16,8 @@ export default Route.extend({
     willTransition() {
       this.controller.model.rollbackAttributes();
     },
+    save(model) {
+      model.save().then(() => this.transitionTo('people'));
+    }
   },
 });

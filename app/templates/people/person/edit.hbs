@@ -1,1 +1,98 @@
-{{outlet}}
+<div class="card">
+  <div class="card-body">
+    <form {{action "save" model on="submit"}}>
+      <div class="form-group">
+        <label for="fname">First Name</label>
+        {{input type="text"
+          value=model.firstname
+          class="form-control"
+          id="fname"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="lname">Last Name</label>
+        {{input
+          type="text"
+          value=model.lastname
+          class="form-control"
+          id="lname"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="email">Email address</label>
+        {{input
+          type="email"
+          value=model.email
+          class="form-control"
+          id="email"
+          placeholder="name@example.com"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="cnumber">Contact Number</label>
+        {{input
+          type="text"
+          value=model.contact_number
+          class="form-control"
+          id="cnumber"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="acontact">Alternative Contact Number</label>
+        {{input
+          type="text"
+          value=model.alternative_contact_number
+          class="form-control"
+          id="acontact"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="address">Address(including province)</label>
+        {{textarea
+          rows=6
+          value=model.address
+          class="form-control"
+          id="address"
+        }}
+      </div>
+      <div class="form-group">
+        <label for="mcontact">Preferred Method of Contact</label>
+        {{input
+          type="text"
+          value=model.preferred_method_of_contact
+          class="form-control"
+          id="mcontact"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="jdate">Joining Date</label>
+        {{pikaday-input
+          class="form-control"
+          value=model.joining_date
+          onSelection=(action (mut model.joining_date))
+          format="MM/DD/YYYY"
+          required=true
+        }}
+      </div>
+      <div class="form-group">
+        <label for="branch">Branch</label>
+        {{select-model
+          class="form-control"
+          id="branch"
+          options=branches
+          selected=model.branch
+        }}
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-success">Save</button>
+        {{#link-to "people" class="btn btn-default"}} Cancel {{/link-to}}
+      </div>
+    </form>
+  </div>
+</div>

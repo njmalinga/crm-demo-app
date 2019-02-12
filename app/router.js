@@ -9,15 +9,14 @@ const Router = EmberRouter.extend({
 Router.map(function() {
   this.route('people', function() {
     this.route('person', function() {
-      this.route('details');
-      this.route('edit');
+      this.route('details', {path: ':person_id/details'});
+      this.route('edit', {path: ':person_id/edit'});
     });
     this.route('new');
   });
   this.route('branches', function() {
     this.route('new');
-
-    this.route('branch', function() {
+    this.route('branch', {path: '/:branch_id'}, function() {
       this.route('edit');
     });
   });

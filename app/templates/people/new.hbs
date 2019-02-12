@@ -72,15 +72,17 @@
       </div>
       <div class="form-group">
         <label for="jdate">Joining Date</label>
-        {{pick-a-date
-          date=(readonly model.joining_date)
-          on-selected=(action (mut model.joining_date))
+        {{pikaday-input
+          class="form-control"
+          onSelection=(action (mut model.joining_date))
+          format="MM/DD/YYYY"
           required=true
         }}
       </div>
       <div class="form-group">
         <label for="branch">Branch</label>
         {{select-model
+          class="form-control"
           id="branch"
           options=branches
           selected=model.branch

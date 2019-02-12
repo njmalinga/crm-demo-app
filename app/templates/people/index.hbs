@@ -16,10 +16,11 @@
         <td>{{person.firstname}}</td>
         <td>{{person.lastname}}</td>
         <td>{{person.contact_number}}</td>
-        <td>{{person.joining_date}}</td>
+        <td>{{moment-format person.joining_date "DD-MM-YYYY"}}</td>
         <td>
           {{#link-to "people.person.details" person.id}} Details |{{/link-to}}
-          {{#link-to "people.person.edit" person.id}} Edit {{/link-to}}
+          {{#link-to "people.person.edit" person.id}} Edit |{{/link-to}}
+          <a href="#" {{action "deletePerson" person}}>Delete</a>
         </td>
       </tr>
     {{/each}}
