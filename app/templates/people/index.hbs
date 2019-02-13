@@ -38,11 +38,15 @@
         <td>{{moment-format person.joining_date "DD-MM-YYYY"}}</td>
         <td>
           {{#link-to "people.person.details" person.id}} Details |{{/link-to}}
-          {{#link-to "people.person.edit" person.id}} Edit |{{/link-to}}
-          <a href="#" {{action "deletePerson" person}}>Delete</a>
+          {{#if (eq currentUser.profile.type "1")}}
+            {{#link-to "people.person.edit" person.id}} Edit |{{/link-to}}
+            <a href="#" {{action "deletePerson" person}}>Delete</a>
+          {{/if}}
         </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
-{{#link-to "people.new" class="btn btn-primary"}} New {{/link-to}}
+{{#if (eq currentUser.profile.type "1")}}
+  {{#link-to "people.new" class="btn btn-primary"}} New {{/link-to}}
+{{/if}}

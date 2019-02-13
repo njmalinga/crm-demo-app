@@ -12,4 +12,5 @@ export default DS.Model.extend({
   joining_date: DS.attr('date'),
   branch: DS.belongsTo(),
   type: DS.attr(),
+  user: DS.belongsTo(),
 });

@@ -16,10 +16,14 @@
         <td>{{branch.city}}</td>
         <td>{{branch.province}}</td>
         <td>
-          {{#link-to "branches.branch.edit" branch.id}} Edit {{/link-to}}
+          {{#if (eq currentUser.profile.type "1")}}
+            {{#link-to "branches.branch.edit" branch.id}} Edit {{/link-to}}
+          {{/if}}
         </td>
       </tr>
     {{/each}}
   </tbody>
 </table>
-{{#link-to "branches.new" class="btn btn-primary"}} New {{/link-to}}
+{{#if (eq currentUser.profile.type "1")}}
+  {{#link-to "branches.new" class="btn btn-primary"}} New {{/link-to}}
+{{/if}}

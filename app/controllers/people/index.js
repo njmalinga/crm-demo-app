@@ -1,8 +1,10 @@
 import Controller from '@ember/controller';
 import { computed } from '@ember/object'
 import moment from 'moment';
+import { inject as service } from '@ember/service';
 
 export default Controller.extend({
+  currentUser: service(),
   people: computed('model',
     'model.@each.id',
     'first_name',
