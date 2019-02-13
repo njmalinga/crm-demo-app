@@ -2,6 +2,26 @@
   <div class="card-body">
     <form {{action "save" model on="submit"}}>
       <div class="form-group">
+        <div class="media">
+          {{#if model.profile_image}}
+            <img height="70px" width="70px" class="mr-3" src={{model.profile_image}} alt="Image">
+          {{/if}}
+          <div class="media-body">
+            {{#file-upload name="photos"
+              accept="image/*"
+              onfileadd=(action "uploadImage") as |queue|}}
+              <a>
+                {{#if queue.files.length}}
+                  Uploading...
+                {{else}}
+                  Click here to upload picture
+                {{/if}}
+              </a>
+            {{/file-upload}}
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
         <label for="fname">First Name</label>
         {{input type="text"
           value=model.firstname
