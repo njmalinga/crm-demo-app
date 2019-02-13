@@ -8,9 +8,11 @@ export default Controller.extend({
     'first_name',
     'last_name',
     'years_as_customer',
+    'branch_name',
     function() {
       const model = this.model;
-      if (!this.first_name && !this.last_name && !this.years_as_customer) {
+      if (!this.first_name && !this.last_name && !this.years_as_customer
+          && !this.branch_name) {
         return model;
       }
       const filtered = this.filteredPeople.call(this);
@@ -38,6 +40,13 @@ export default Controller.extend({
         filtered = this.filterByYearsAsCustomer.call(this, people);
       }
     }
+    if (this.branch_name) {
+      if (filtered) {
+        filtered = this.filterByBranchName.call(this, filtered);
+      } else {
+        filtered = this.filterByBranchName.call(this, people);
+      }
+    }
     return filtered;
   },
 
@@ -61,6 +70,13 @@ export default Controller.extend({
       const joining_date = moment(person.joining_date);
       const duration = moment.duration(today.diff(joining_date)).as('y');
       return Math.round(duration) === parseInt(this.years_as_customer);
+    });
+    return filtered;
+  },
+
+  filterByBranchName(people) {
+    let filtered = people.filter(person => {
+      return person.get('branch.name').toLowerCase().match(this.branch_name.toLowerCase());
     });
     return filtered;
   },
