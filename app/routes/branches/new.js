@@ -5,6 +5,9 @@ export default Route.extend({
     return this.store.createRecord('branch');
   },
   actions: {
+    willTransition() {
+      this.controller.model.rollbackAttributes();
+    },
     save(branch) {
       branch.save().then(() => this.transitionTo('branches'));
     },

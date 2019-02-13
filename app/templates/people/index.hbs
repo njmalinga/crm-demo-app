@@ -1,3 +1,22 @@
+<h4>Filter by any of the options below</h4>
+<div class="row">
+  <div class="col">
+    {{input type="text" value=first_name class="form-control" placeholder="First Name"}}
+  </div>
+  <div class="col">
+    {{input type="text" value=last_name class="form-control" placeholder="Last Name"}}
+  </div>
+  <div class="col">
+    {{input type="text" class="form-control" placeholder="Years as Customer e.g 2"}}
+  </div>
+  <div class="col">
+    {{input type="text" class="form-control" placeholder="Branch Name"}}
+  </div>
+  <div class="col">
+    {{input type="text" class="form-control" placeholder="Province"}}
+  </div>
+</div>
+<br />
 <table class="table">
   <thead class="thead-light">
     <tr>
@@ -10,7 +29,7 @@
     </tr>
   </thead>
   <tbody>
-    {{#each model as |person|}}
+    {{#each people as |person|}}
       <tr>
         <td>{{person.id}}</td>
         <td>{{person.firstname}}</td>
