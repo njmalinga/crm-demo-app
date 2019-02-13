@@ -4,7 +4,7 @@
     <div class="card">
       <div class="card-header text-center">Login</div>
       <div class="card-body">
-        <form {{action "login" on="submit"}}>
+        <form {{action "authenticate" on="submit"}}>
           <div class="form-group">
             <label for="email">Email address</label>
             {{input type="email" value=email class="form-control" id="email" placeholder="Enter email"}}
@@ -16,7 +16,7 @@
           </div>
           <button type="submit" class="btn btn-primary">Submit</button>
           {{#if errorMessage}}
-            <p>{{errorMessage}}</p>
+            <p style="color:red">{{errorMessage}}</p>
           {{/if}}
         </form>
       </div>

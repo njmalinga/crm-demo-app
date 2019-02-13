@@ -8,7 +8,7 @@ export default Controller.extend({
       let { email, password } = this.getProperties('email', 'password');
       this.get('session').authenticate('authenticator:token', email, password)
       .catch(error => {
-        this.set('errorMessage', error.json.errors[0] || error);
+        this.set('errorMessage', error.statusText || error);
       });
     }
   }
